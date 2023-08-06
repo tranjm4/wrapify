@@ -1,34 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Route, createBrowserRouter, createRoutesFromElements, Link, RouterProvider, Outlet } from "react-router-dom";
+import "./App.css";
+import Home from "./components/Home/Home";
+import Wrapped from "./components/Wrapped";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Root />}>
+        <Route index element={<Home />} />
+        <Route path="/wrapped" element={<Wrapped />} />
+
+      </Route>
+
+    )
+  )
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  )
+}
+
+const Root = () => {
+  return (
+    <div className="flex flex-col items-center h-screen w-screen selection:bg-primary selection:text-black">
+      <div className="w-full h-fit mx-5 flex justify-center fixed z-10 top-0 bg-background shadow-lg">
+        <Link to="/" className="px-5 py-8 h-full w-full text-center text-primary text-2xl font-bold 
+                              hover:text-black duration-300 hover:bg-primary">
+          Home
+        </Link>
+        <Link to="/wrapped" className="px-5 py-8 h-full w-full text-center text-primary text-2xl font-bold 
+                                     hover:text-black duration-300 hover:bg-primary">
+          Wrapped
+        </Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="h-fit w-full">
+        <Outlet />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
