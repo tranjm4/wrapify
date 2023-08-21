@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Artist, Track, ArtistEntryProps, TrackEntryProps, Entry } from './interfaces';
+import { Entry } from './interfaces';
 import TrackEntry from './TrackEntry';
 import ArtistEntry from './ArtistEntry';
 
@@ -12,26 +12,18 @@ interface Props {
 const Tab: React.FC<Props> = ({ entries, entryType }: Props) => {
     if (entryType == "artist") {
         return (
-            <div className="flex flex-col">
+            <div className="flex flex-col h-fit mb-20">
                 {entries.map((entry, index) => (
-                    // @ts-ignore
                     <ArtistEntry entry={entry} key={index} />
-                    // <>
-                    //     {entry}
-                    // </>
                 ))}
             </div>
         )
     }
     else {
         return (
-            <div className="flex flex-col">
+            <div className="flex flex-col h-fit mb-20">
                 {entries.map((entry, index) => (
-                    // @ts-ignore
                     <TrackEntry entry={entry} key={index} />
-                    // <>
-                    //     {entry}
-                    // </>
                 ))}
             </div>
         )
