@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Artist, Track, Album, ExternalURL, ImageObject, TrackEntryProps } from './interfaces';
+import { TrackEntryProps } from './interfaces';
+import { motion } from "framer-motion";
 
 interface Props {
   entry: TrackEntryProps;
@@ -9,7 +10,17 @@ interface Props {
 
 const TrackEntry: React.FC<Props> = ({ entry, key }: Props) => {
   return (
-    <div key={key} className="flex flex-grow flex-row w-full py-5 border-b-2 last:border-b-0 md:border-b-8">
+    <motion.div
+      variants={{
+        hidden: { y: 50, opacity: 0 },
+        visible: { y: 0, opacity: 1 }
+      }}
+      key={key}
+      className="flex flex-grow flex-row w-full py-5 border-b-2 last:border-b-0 md:border-b-8"
+      initial="hidden"
+      animate="visible"
+      transition={{ type: "spring", damping: 10, stiffness: 75 }}
+    >
       <img src={entry.album.images[0].url}
         className="w-[125px] md:w-[200px] xl:w-[250px] transition-all duration-500"></img>
       <div className="flex flex-grow flex-col w-full justify-center text-right pl-2">
@@ -27,7 +38,7 @@ const TrackEntry: React.FC<Props> = ({ entry, key }: Props) => {
           </div>
         </>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

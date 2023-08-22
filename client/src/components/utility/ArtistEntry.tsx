@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ArtistEntryProps } from "./interfaces";
+import { motion } from "framer-motion";
 
 interface Props {
     entry: ArtistEntryProps;
@@ -9,7 +10,17 @@ interface Props {
 
 const ArtistEntry: React.FC<Props> = ({ entry, key }: Props) => {
     return (
-        <div key={key} className="flex flex-row flex-grow w-full py-5 border-b-2 last:border-b-0 md:border-b-8">
+        <motion.div
+            variants={{
+                hidden: { y: 50, opacity: 0 },
+                visible: { y: 0, opacity: 1 }
+            }}
+            className="flex flex-row flex-grow w-full py-5 border-b-2 last:border-b-0 md:border-b-8"
+            key={key}
+            initial="hidden"
+            animate="visible"
+            transition={{ type: "spring", damping: 10, stiffness: 75 }}
+        >
             <img src={entry.images[0].url}
                 className="w-[125px] md:w-[200px] xl:w-[250px] transition-all duration-500"></img>
             <div className="flex items-center justify-center w-full">
@@ -21,7 +32,7 @@ const ArtistEntry: React.FC<Props> = ({ entry, key }: Props) => {
                     </h2>
                 </a>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
