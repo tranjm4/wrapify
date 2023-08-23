@@ -7,10 +7,10 @@ export default defineConfig({
   server: {
     proxy: {
       "auth/spotify": {
-        target: "http://localhost:8000",
+        target: "https://wrapify-server-bff9ee0094f2.herokuapp.com",
       },
       "/api": {
-        target: "http://localhost:8000",
+        target: "https://wrapify-server-bff9ee0094f2.herokuapp.com",
       }
     }
   }
