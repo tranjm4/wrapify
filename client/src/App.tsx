@@ -8,7 +8,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
-        <Route path="/callback" element={<Callback />} />
+        <Route path="/hello" element={<Callback />} />
 
       </Route>
 
