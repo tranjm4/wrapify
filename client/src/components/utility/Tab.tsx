@@ -3,7 +3,6 @@ import React from 'react';
 import { Entry } from './interfaces';
 import TrackEntry from './TrackEntry';
 import ArtistEntry from './ArtistEntry';
-import StaggerContainer from '../motions/StaggerContainer';
 
 interface Props {
     entries: Entry[];

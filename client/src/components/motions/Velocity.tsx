@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useVelocity, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React from "react";
+import { motion, useScroll, useVelocity, useSpring, useTransform } from "framer-motion";
 
 interface Props {
     children: React.ReactNode;

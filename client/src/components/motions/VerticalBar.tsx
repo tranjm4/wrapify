@@ -5,7 +5,7 @@ interface Props {
     className: string;
 }
 
-const VerticalBar = ({ className }: Props) => {
+const VerticalBar: React.FC<Props> = ({ className }: Props) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
 

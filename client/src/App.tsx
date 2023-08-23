@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Route, createBrowserRouter, createRoutesFromElements, Link, RouterProvider, Outlet } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import Callback from "./Callback";
