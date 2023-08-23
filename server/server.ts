@@ -9,14 +9,9 @@ dotenv.config();
 
 const app = express();
 
-const localURL = "http://localhost:8000";
+const localURL = "https://wrapify-server.jmhtran.dev";
 
-const clientSecret = "a919f1a002a7475b8cf473709bab42a6";
-app.use(session({
-    secret: clientSecret,
-    resave: false,
-    saveUninitialized: true,
-}));
+
 app.use(cors());
 app.use("/", express.static("public"));
 const clientID = process.env.CLIENTID;
@@ -43,7 +38,7 @@ app.get("/auth/spotify", (req, res) => {
 
 app.get("/callback", async (req, res) => {
     const { code, verifier } = req.query;
-    const redirectURI = "http://localhost:5173/callback";
+    const redirectURI = "https://wrapify.jmhtran.dev/callback";
     const params = querystring.stringify({
         "client_id": clientID,
         "grant_type": "authorization_code",

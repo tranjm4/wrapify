@@ -43,13 +43,7 @@ var cors = require("cors");
 var dotenv = require("dotenv");
 dotenv.config();
 var app = express();
-var localURL = "http://localhost:8000";
-var clientSecret = "a919f1a002a7475b8cf473709bab42a6";
-app.use(session({
-    secret: clientSecret,
-    resave: false,
-    saveUninitialized: true,
-}));
+var localURL = "https://wrapify-server.jmhtran.dev";
 app.use(cors());
 app.use("/", express.static("public"));
 var clientID = process.env.CLIENTID;
@@ -74,7 +68,7 @@ app.get("/callback", function (req, res) { return __awaiter(_this, void 0, void 
         switch (_b.label) {
             case 0:
                 _a = req.query, code = _a.code, verifier = _a.verifier;
-                redirectURI = "http://localhost:5173/callback";
+                redirectURI = "https://wrapify.jmhtran.dev/callback";
                 params = querystring.stringify({
                     "client_id": clientID,
                     "grant_type": "authorization_code",
