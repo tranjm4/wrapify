@@ -16,7 +16,7 @@ async function redirectToAuthCodeFlow() {
     params.append("code_challenge", challenge);
     params.append("verifier", verifier);
 
-    document.location = `/auth/spotify?${params.toString()}`;
+    document.location = `${SERVERURL}/auth/spotify?${params.toString()}`;
 }
 
 // Code verifier for Spotify API
