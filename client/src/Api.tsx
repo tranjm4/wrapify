@@ -1,5 +1,5 @@
 const LOCALURL = "https://wrapify.jmhtran.dev";
-const SERVERURL = "https://wrapify-server.jmhtran.dev";
+const SERVERURL = "https://wrapify-server-bff9ee0094f2.herokuapp.com";
 
 async function redirectToAuthCodeFlow() {
     const verifier = generateCodeVerifier(128);
