@@ -1,5 +1,5 @@
 const LOCALURL = "https://wrapify.jmhtran.dev";
-const SERVERURL = "https://wrapify-server-bff9ee0094f2.herokuapp.com";
+const SERVERURL = "https://wrapify-server.jmhtran.dev";
 
 async function redirectToAuthCodeFlow() {
     const verifier = generateCodeVerifier(128);
@@ -16,7 +16,7 @@ async function redirectToAuthCodeFlow() {
     params.append("code_challenge", challenge);
     params.append("verifier", verifier);
 
-    document.location = `${SERVERURL}/auth/spotify?${params.toString()}`;
+    document.location = `/auth/spotify?${params.toString()}`;
 }
 
 // Code verifier for Spotify API

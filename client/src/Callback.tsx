@@ -26,7 +26,7 @@ interface StoredUserData {
 }
 
 function isExpired(lastUpdateTime: number) {
-    const updateInterval = 3600000; // 1 hour
+    const updateInterval = 3600; // 1 hour
     const currentTime = Date.now();
 
     return currentTime - lastUpdateTime > updateInterval;
@@ -134,6 +134,7 @@ const Callback: React.FC = () => {
     useEffect(() => {
         async function getData(accessToken: string) {
             // Gets user data from backend API => Spotify API
+            console.log(accessToken);
             const data = await getUserData(accessToken)
                 .then(response => {
                     return response.json();
